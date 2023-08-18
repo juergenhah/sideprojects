@@ -1,0 +1,7 @@
+{
+  "name": "uebergangApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}

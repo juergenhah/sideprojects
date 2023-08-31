@@ -9,17 +9,21 @@
         </ion-card-content>
     </ion-card>
 </template>
-
-
+  
 <script setup>
-const props = defineProps({
-    featureName: String, 
-    featureRoute: String, 
-});
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton } from '@ionic/vue';
+import { defineProps } from 'vue';
 import { useRouter } from 'vue-router';
+
+const props = defineProps({
+    featureName: String,
+    featureRoute: String,
+});
+
 const router = useRouter();
 const navigateToFeature = () => {
-    console.log("heloo");
-    router.push('/'+props.featureRoute );
+    if (props.featureRoute !== "")
+        router.push('/' + props.featureRoute);
 };
 </script>
+  

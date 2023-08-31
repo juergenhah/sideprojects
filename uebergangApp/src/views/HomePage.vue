@@ -6,16 +6,17 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
+    <ion-content :fullscreen="true" class="content">
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">Übergang APP</ion-title>
         </ion-toolbar>
       </ion-header>
 
-      <div id="container">
-        <feature-component featureName="Image Croping" featureRoute="image-feature" />
-        <feature-component featureName="Custom Feature" featureRoute="/custom-feature" />
+      <div class="feature-list">
+        <feature-component featureName="Image Cropping" featureRoute="image-feature" />
+        <feature-component featureName="HTML to PDF" featureRoute="pdf-feature" />
+        <feature-component featureName="Custom Feature" featureRoute="" />
       </div>
     </ion-content>
   </ion-page>
@@ -23,35 +24,46 @@
 
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import FeatureComponent from './FeatureComponent.vue'
+import FeatureComponent from './FeatureComponent.vue';
 </script>
 
 <style scoped>
-#container {
-  text-align: center;
+.content {
+  --ion-safe-area-top: 20px; /* Adjust this as needed */
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#container strong {
+.feature-list {
+  text-align: center;
+  padding: 20px;
+}
+
+.feature-list feature-component {
+  margin-bottom: 20px;
+}
+
+.feature-list a {
+  text-decoration: none;
+  color: #333;
+}
+
+.feature-list a:hover {
+  color: #007bff;
+}
+
+.feature-list strong {
   font-size: 20px;
   line-height: 26px;
 }
 
-#container p {
+.feature-list p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
-}
-
-#container a {
-  text-decoration: none;
 }
 </style>
